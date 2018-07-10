@@ -50,7 +50,7 @@ function getBlockHash(block) {
 // condidateBlock 추가될 블록
 // lastBlock 가장 마지막의 블록
 function isBlockValid(candidateBlock, lastBlock) {
-	if (!isBlockValid(candidateBlock)) {
+	if (!isStructureValid(candidateBlock)) {
 		console.log("Candidate block structure is not valid");
 		return false;
 	} else if (lastBlock.index + 1 !== candidateBlock.index) {
