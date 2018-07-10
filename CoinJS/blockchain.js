@@ -53,3 +53,7 @@ function isBlockValid(candidateBlock, lastBlock) {
 	}
 	return true;
 }
+
+function isStructureValid(block) {
+	return typeof block.index === "number" && typeof block.hash === "string" && typeof block.prevHash === "string" && typeof block.timeStamp === "number" && typeof block.data === "string";
+}
