@@ -30,4 +30,8 @@ function createBlock(data) {
 	const prevBlock = getLastBlock();
 	const newBlockIndex = prevBlock.index + 1;
 	const newTimeStamp = getTimeStamp();
+	const newHash = createHash(newBlockIndex, prevBlock.hash, newTimeStamp, data);
+
+	const newBlock = new Block(newBlockIndex, newHash, prevBlock.hash, newTimeStamp, data);
+	return newBlock;
 }
