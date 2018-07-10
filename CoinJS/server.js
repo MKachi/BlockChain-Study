@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+
 const blockChain = require("./blockchain");
+const p2p = require("./p2p");
 
 const { getBlockChain, createBlock } = blockChain;
+const { startP2PServer } = p2p;
 
 // process환경설정에서 PORT를 찾고 이게 없다면 3000으로 실행됨
 // 콘솔에서 export PORT=3000 과 같이 환경설정 가능
@@ -23,6 +26,8 @@ app.post("/blocks", function(req, res) {
 	res.send(newBlock);
 });
 
-app.listen(PORT, function() {
+const server = app.listen(PORT, function() {
 	console.log("Coin server running on " + PORT);
 });
+
+startP2PServer(server);
