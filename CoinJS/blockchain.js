@@ -36,6 +36,9 @@ function createBlock(data) {
 	const newHash = createHash(newBlockIndex, prevBlock.hash, newTimeStamp, data);
 
 	const newBlock = new Block(newBlockIndex, newHash, prevBlock.hash, newTimeStamp, data);
+
+	addBlockToChain(newBlock);
+
 	return newBlock;
 }
 
@@ -102,3 +105,8 @@ function addBlockToChain(candidateBlock) {
 	}
 	return false;
 }
+
+module.exports = {
+	getBlockChain,
+	createBlock
+};
