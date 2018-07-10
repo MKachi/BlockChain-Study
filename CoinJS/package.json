@@ -4,7 +4,8 @@
 	"description": "block chain study",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js"
+		"start": "node server.js",
+		"dev": "nodemon server.js"
 	},
 	"author": "M_Kachi",
 	"license": "ISC",
