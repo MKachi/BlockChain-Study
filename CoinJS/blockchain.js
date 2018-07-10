@@ -35,3 +35,21 @@ function createBlock(data) {
 	const newBlock = new Block(newBlockIndex, newHash, prevBlock.hash, newTimeStamp, data);
 	return newBlock;
 }
+
+function getBlockHash(block) {
+	return createHash(block.index, block.prevHash, block.timeStamp, block.data);
+}
+
+function isBlockValid(candidateBlock, lastBlock) {
+	if (lastBlock.index + 1 !== candidateBlock.index) {
+		console.log("candidate block doenst hava a valid index");
+		return false;
+	} else if (lastBlock.hash !== candidateBlock.prevHash) {
+		console.log("previousHash of the candidate block is not hash of the last block");
+		return false;
+	} else if (getBlockHash(candidateBlock) !== candidateBlock.hash) {
+		console.log("hash of this block is invalid");
+		return false;
+	}
+	return true;
+}
