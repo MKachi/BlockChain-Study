@@ -10,12 +10,19 @@ function startP2PServer(server) {
 	const wsServer = new ws.Server({ server });
 	wsServer.on("connection", function(socket) {
 		console.log("Hello ${socket}");
+		initScoketConnection(socket);
 	});
 	console.log("Coin p2p server running");
 }
 
 function initScoketConnection(socket) {
 	sockets.push(socket);
+	socket.on("message", function(data) {
+		console.log(data);
+	});
+	setTimeout(function() {
+		socket.send("Welcome");
+	}, 5000);
 }
 
 function connectToPeers(newPeer) {
