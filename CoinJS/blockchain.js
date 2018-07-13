@@ -108,5 +108,6 @@ function addBlockToChain(candidateBlock) {
 
 module.exports = {
 	getBlockChain,
-	createBlock
+	createBlock,
+	getLastBlock
 };
