@@ -1,2 +1,2 @@
-# BlockChain-Study
+# BlockChain
 BlockChainStudy Repository
